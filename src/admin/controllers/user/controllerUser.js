@@ -64,5 +64,20 @@ module.exports = {
         }catch(error){
             res.status(500).json("An unexpected error has occurred!");
         }
+    },
+    async removeUser(req, res) {
+        try{
+            const { id } = req.params;
+
+            await models.User.destroy({
+                where: {
+                    id
+                }
+            });
+
+            res.status(200).json("User successfully removed!");
+        }catch(error){
+            res.status(500).json("An unexpected error has occurred!");
+        }
     }
 }
