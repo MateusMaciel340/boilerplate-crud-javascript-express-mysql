@@ -7,4 +7,8 @@ routerUser.get("/listingUser",
     controllerUser.listingUser
 );
 
+routerUser.get("/searchingUser/:id",
+    controllerUser.searchingUser
+);
+
 module.exports = routerUser;
