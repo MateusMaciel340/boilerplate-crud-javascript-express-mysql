@@ -11,4 +11,8 @@ routerUser.get("/searchingUser/:id",
     controllerUser.searchingUser
 );
 
+routerUser.post("/addingUser",
+    controllerUser.addingUser
+);
+
 module.exports = routerUser;
