@@ -19,4 +19,8 @@ routerUser.put("/updatedUser/:id",
     controllerUser.updatedUser
 );
 
+routerUser.delete("/removeUser/:id",
+    controllerUser.removeUser
+);
+
 module.exports = routerUser;
