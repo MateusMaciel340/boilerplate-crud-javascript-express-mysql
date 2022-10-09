@@ -15,4 +15,8 @@ routerUser.post("/addingUser",
     controllerUser.addingUser
 );
 
+routerUser.put("/updatedUser/:id",
+    controllerUser.updatedUser
+);
+
 module.exports = routerUser;

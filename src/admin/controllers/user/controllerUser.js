@@ -40,7 +40,29 @@ module.exports = {
 
             res.status(201).json("User registered successfully!");
         }catch(error){
-            res.status(500).json("An unexpected error has occurred!" + error);
+            res.status(500).json("An unexpected error has occurred!");
+        }
+    },
+    async updatedUser(req, res) {
+        try{
+            const { id } = req.params;
+            const { 
+                username, password
+            } = req.body;
+
+            const new_password = bcryptjs.hashSync(password, 10);
+
+            await models.User.update({
+                username, password: new_password
+            }, {
+                where: {
+                    id
+                }
+            });
+
+            res.status(201).json("User successfully updated!");
+        }catch(error){
+            res.status(500).json("An unexpected error has occurred!");
         }
     }
 }
