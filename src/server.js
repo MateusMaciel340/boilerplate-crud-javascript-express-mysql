@@ -11,7 +11,8 @@ const swaggerUi = require("swagger-ui-express");
 const app = express();
 
 app.use(
-    bodyParser.urlencoded({ extended: false }), router
+    express.json(), bodyParser.urlencoded({ extended: false }),
+    router
 );
 
 app.use(

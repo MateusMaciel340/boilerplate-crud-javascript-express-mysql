@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/test", (req, res) => {
-    res.send("Hello World!");
-});
+const routerAdmin = require("../admin/routes");
+
+router.use(routerAdmin);
 
 module.exports = router;
