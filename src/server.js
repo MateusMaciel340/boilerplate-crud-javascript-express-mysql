@@ -4,6 +4,7 @@ const dotenv = require("dotenv").config();
 const db = require("./db/connection");
 const router = require("./routes");
 const swaggerFile = require("./swagger/swagger.json");
+const handleError = require("./middlewares/handleError");
 
 const bodyParser = require("body-parser");
 const swaggerUi = require("swagger-ui-express");
@@ -12,7 +13,7 @@ const app = express();
 
 app.use(
     express.json(), bodyParser.urlencoded({ extended: false }),
-    router
+    router, handleError
 );
 
 app.use(
