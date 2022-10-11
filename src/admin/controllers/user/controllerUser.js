@@ -15,6 +15,12 @@ module.exports = {
         try {
             const { id } = req.params;
 
+            const checkUser = await models.User.findByPk(id);
+
+            if (!checkUser) {
+                return res.status(400).json("This user does not exist!");
+            }
+
             const searchingUser = await models.User.findAll({
                 where: {
                     id
@@ -27,7 +33,7 @@ module.exports = {
         }
     },
     async addingUser(req, res) {
-        try{
+        try {
             const {
                 username, password
             } = req.body;
@@ -39,16 +45,22 @@ module.exports = {
             });
 
             res.status(201).json("User registered successfully!");
-        }catch(error){
+        } catch (error) {
             res.status(500).json("An unexpected error has occurred!");
         }
     },
     async updatedUser(req, res) {
-        try{
+        try {
             const { id } = req.params;
-            const { 
+            const {
                 username, password
             } = req.body;
+
+            const checkUser = await models.User.findByPk(id);
+
+            if (!checkUser) {
+                return res.status(400).json("This user does not exist!");
+            }
 
             const new_password = bcryptjs.hashSync(password, 10);
 
@@ -61,13 +73,19 @@ module.exports = {
             });
 
             res.status(201).json("User successfully updated!");
-        }catch(error){
+        } catch (error) {
             res.status(500).json("An unexpected error has occurred!");
         }
     },
     async removeUser(req, res) {
-        try{
+        try {
             const { id } = req.params;
+
+            const checkUser = await models.User.findByPk(id);
+
+            if (!checkUser) {
+                return res.status(400).json("This user does not exist!");
+            }
 
             await models.User.destroy({
                 where: {
@@ -76,7 +94,7 @@ module.exports = {
             });
 
             res.status(200).json("User successfully removed!");
-        }catch(error){
+        } catch (error) {
             res.status(500).json("An unexpected error has occurred!");
         }
     }
