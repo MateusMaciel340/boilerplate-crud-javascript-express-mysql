@@ -2,25 +2,26 @@ const express = require("express");
 const routerUser = express.Router();
 
 const { controllerUser } = require("../../controllers");
+const acess = require("../../../middlewares/acess");
 
 routerUser.get("/listingUser",
-    controllerUser.listingUser
+    acess, controllerUser.listingUser
 );
 
 routerUser.get("/searchingUser/:id",
-    controllerUser.searchingUser
+    acess, controllerUser.searchingUser
 );
 
 routerUser.post("/addingUser",
-    controllerUser.addingUser
+    acess, controllerUser.addingUser
 );
 
 routerUser.put("/updatedUser/:id",
-    controllerUser.updatedUser
+    acess, controllerUser.updatedUser
 );
 
 routerUser.delete("/removeUser/:id",
-    controllerUser.removeUser
+    acess, controllerUser.removeUser
 );
 
 module.exports = routerUser;
