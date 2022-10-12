@@ -46,7 +46,11 @@ module.exports = {
 
             res.status(201).json("User registered successfully!");
         } catch (error) {
-            res.status(500).json("An unexpected error has occurred!");
+            if (error.name == "SequelizeUniqueConstraintError") {
+                return res.status(403).json("This user is already being used!");
+            }
+
+            res.status(500).json("An unexpected error has occurred!" + error);
         }
     },
     async updatedUser(req, res) {
@@ -74,7 +78,11 @@ module.exports = {
 
             res.status(201).json("User successfully updated!");
         } catch (error) {
-            res.status(500).json("An unexpected error has occurred!");
+            if (error.name == "SequelizeUniqueConstraintError") {
+                return res.status(403).json("This user is already being used!");
+            }
+
+            res.status(500).json("An unexpected error has occurred!" + error);
         }
     },
     async removeUser(req, res) {
