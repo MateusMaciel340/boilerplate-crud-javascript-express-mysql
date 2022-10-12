@@ -11,8 +11,13 @@ const swaggerUi = require("swagger-ui-express");
 
 const app = express();
 
+const cors = require("cors");
+
 app.use(
-    express.json(), bodyParser.urlencoded({ extended: false }),
+    express.json(), cors({
+        origin: process.env.CORS_SERVER,
+    }),
+    bodyParser.urlencoded({ extended: false }),
     router, handleError
 );
 
