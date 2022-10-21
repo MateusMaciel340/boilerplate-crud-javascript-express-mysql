@@ -18,6 +18,7 @@ module.exports = (sequelize) => {
       type: DataTypes.UUID, defaultValue: UUIDV4,
       primaryKey: true
     },
+    img: DataTypes.STRING,
     username: {
       type: DataTypes.STRING, unique: true
     },
