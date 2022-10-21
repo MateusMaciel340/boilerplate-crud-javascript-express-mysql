@@ -10,7 +10,8 @@ module.exports = {
       username: "mateusmaciel340",
       password: "$2a$10$oA9yp6hUbEvHulDT3UEobegmZTgkd/rAhYBYcKiP6H9l7oBzueLb6",
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
+      img: "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"
     }]);
   },
 
