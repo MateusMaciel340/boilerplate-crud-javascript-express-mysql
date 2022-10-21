@@ -24,4 +24,8 @@ routerUser.delete("/removeUser/:id",
     acess, controllerUser.removeUser
 );
 
+routerUser.get("/authUser",
+    acess, controllerUser.authenticatedUser
+);
+
 module.exports = routerUser;
