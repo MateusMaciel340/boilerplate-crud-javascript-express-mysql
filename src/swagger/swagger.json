@@ -127,6 +127,9 @@
                 },
                 "password": {
                   "example": "any"
+                },
+                "img": {
+                  "example": "any"
                 }
               }
             }
