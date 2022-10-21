@@ -57,7 +57,7 @@ module.exports = {
         try {
             const { id } = req.params;
             const {
-                username, password
+                username, img
             } = req.body;
 
             const checkUser = await models.User.findByPk(id);
@@ -66,10 +66,8 @@ module.exports = {
                 return res.status(400).json("This user does not exist!");
             }
 
-            const new_password = bcryptjs.hashSync(password, 10);
-
             await models.User.update({
-                username, password: new_password
+                username, img
             }, {
                 where: {
                     id
