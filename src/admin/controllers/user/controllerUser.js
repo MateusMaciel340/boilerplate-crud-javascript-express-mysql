@@ -35,13 +35,13 @@ module.exports = {
     async addingUser(req, res) {
         try {
             const {
-                username, password
+                username, password, img
             } = req.body;
 
             const new_password = bcryptjs.hashSync(password, 10);
 
             await models.User.create({
-                username, password: new_password
+                username, password: new_password, img
             });
 
             res.status(201).json("User registered successfully!");
