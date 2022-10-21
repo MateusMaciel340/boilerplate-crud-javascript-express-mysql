@@ -103,5 +103,12 @@ module.exports = {
         } catch (error) {
             res.status(500).json("An unexpected error has occurred!");
         }
+    },
+    async authenticatedUser(req, res) {
+        try {
+            res.status(200).json(req.auth);
+        } catch (error) {
+            res.status(500).json("An unexpected error has occurred!");
+        }
     }
 }
