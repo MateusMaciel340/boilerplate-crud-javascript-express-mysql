@@ -172,7 +172,7 @@
                 "username": {
                   "example": "any"
                 },
-                "password": {
+                "img": {
                   "example": "any"
                 }
               }
